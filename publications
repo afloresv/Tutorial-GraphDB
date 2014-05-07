@@ -1,0 +1,4 @@
+#!/bin/bash
+source lib/lib.sh
+
+java $FLAGS -classpath $LIBS experiment.$1 $2

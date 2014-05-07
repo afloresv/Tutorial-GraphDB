@@ -1,0 +1,15 @@
+#!/bin/bash
+source lib/lib.sh
+echo " +----------------------------------+"
+echo " |        Graphium Chrysalis        |"
+echo " |    © Universidad Simon Bolivar   |"
+echo " +----------------------------------+"
+echo -n " Creating graph DB..."
+java $FLAGS -classpath $LIBS ve.usb.ldc.graphium.load.LoadGraph $@ 2>> Graphium.log
+if [ $? -ne 0 ]; then
+	echo ""
+	echo " Something went wrong... Check Graphium.log"
+	exit 1
+fi
+echo " Done."
+echo " Now use ./chrysalis to analize this graph."
