@@ -1,0 +1,14 @@
+# Compiled source #
+###################
+*.class
+
+# Test directory #
+##################
+tests/
+tools/
+log/
+
+# Other Files #
+###############
+*.log
+*.swp
