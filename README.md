@@ -13,7 +13,7 @@ Attendees will be able to participate in a hands-on session and implement differ
 
 The hands-on session will be comprised of the following four assignments.
 
-	1. Implement a simple query using the API’s provide by Neo4j and Sparksee.
-	2. Implement a set of queries using the Graphium API (http://graphium.ldc.usb.ve).
-	3. Implement different graph invariants using the RDF-based Graphium API (http://graphium.ldc.usb.ve/chrysalis/). 
-	4. Compute graph invariant of different RDF graphs and upload the results in the portal Graphium Chrysalis (http://graphium.ldc.usb.ve/chrysalis/)
+1. Implement a simple query using the API’s provide by Neo4j and Sparksee.
+2. Implement a set of queries using the Graphium API (http://graphium.ldc.usb.ve).
+3. Implement different graph invariants using the RDF-based Graphium API (http://graphium.ldc.usb.ve/chrysalis/). 
+4. Compute graph invariant of different RDF graphs and upload the results in the portal Graphium Chrysalis (http://graphium.ldc.usb.ve/chrysalis/)
