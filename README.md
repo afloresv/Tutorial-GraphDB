@@ -9,7 +9,7 @@ The tutorial describes existing approaches to model graph databases, different t
 Hands-On
 --------
 
-Attendees will be able to participate in a hands-on session and implement different graph-core tasks using the API’s offered by existing graph database engines. We will provide different libraries in Java to interact with the API’s of Neo4j and Sparksee. We assume that participants have installed Java 7, and a text editor in their laptops. Mac and Linux environments are also recommended.     
+Attendees will be able to participate in a hands-on session and implement different graph-core tasks using the API’s offered by existing graph database engines. We will provide different libraries in Java to interact with the API’s of Neo4j and Sparksee. We assume that participants have installed Java 6, and a text editor in their laptops. Mac and Linux environments are also recommended.     
 
 The hands-on session will be comprised of the following four assignments.
 
