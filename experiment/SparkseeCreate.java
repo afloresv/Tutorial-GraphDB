@@ -53,10 +53,12 @@ public class SparkseeCreate {
 			long paper2 = addNode("Paper2");
 			long paper3 = addNode("Paper3");
 			long paper4 = addNode("Paper4");
-			long paper5 = addNode("Paper5");
+			// INSERT CODE HERE
+			// For creating a node for Paper5
 
 			long eswc = addNode("ESWC");
-			long iswc = addNode("ISWC");
+			// INSERT CODE HERE
+			// For creating a node for ISWC
 
 			long peter_smith = addNode("Peter Smith");
 			long john_smith  = addNode("John Smith");
@@ -71,7 +73,8 @@ public class SparkseeCreate {
 			addRelationship(paper4,conference,eswc);
 			addRelationship(paper5,conference,iswc);
 
-			author = g.newRestrictedEdgeType("author",NodeType,NodeType,true);
+			// INSERT CODE HERE
+			// For creating the relationship type for 'author'
 			addRelationship(paper1,author,peter_smith);
 			addRelationship(paper2,author,john_smith);
 			addRelationship(paper3,author,peter_smith);
@@ -84,7 +87,8 @@ public class SparkseeCreate {
 			addRelationship(paper1,cites,paper2);
 			addRelationship(paper3,cites,paper1);
 			addRelationship(paper3,cites,paper4);
-			addRelationship(paper4,cites,paper2);
+			// INSERT CODE HERE
+			// For creating the relationship < paper4 'cites' paper2 >
 
 		} catch (FileNotFoundException e) {
 			System.err.println("Error: " + e.getMessage());
@@ -96,12 +100,16 @@ public class SparkseeCreate {
 	}
 
 	public static long addNode(String id) {
+		// CHECK THIS OUT
+		// This is how you create a new node in Sparksee
 		long n = g.newNode(NodeType);
 		g.setAttribute(n,AttrType,val.setString(id));
 		return n;
 	}
 
 	public static void addRelationship(long src, int rel, long dst) {
+		// CHECK THIS OUT
+		// This is how you create a relationship in Sparksee
 		g.newEdge(rel,src,dst);
 	}
 }

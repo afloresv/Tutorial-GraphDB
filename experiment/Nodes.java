@@ -35,10 +35,12 @@ public class Nodes {
 		int n_Nodes = 0;
 
 		it = g.getAllVertex();
-		while (it.hasNext()) {
-			v = it.next();
-			n_Nodes++;
-		}
+
+		// INSERT Code HERE
+		// The method 'getAllVertex()' returns an iterator over every
+		// vertex in the RDF graph. That is, every URI, BlankNode and
+		// Literal. You have to iterate over the nodes to count them...
+		
 		it.close();
 
 		g.close();

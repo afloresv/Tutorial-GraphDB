@@ -57,10 +57,12 @@ public class Neo4jCreate {
 			Node paper2 = addNode("Paper2");
 			Node paper3 = addNode("Paper3");
 			Node paper4 = addNode("Paper4");
-			Node paper5 = addNode("Paper5");
+			// INSERT CODE HERE
+			// For creating a node for Paper5
 
 			Node eswc = addNode("ESWC");
-			Node iswc = addNode("ISWC");
+			// INSERT CODE HERE
+			// For creating a node for ISWC
 
 			Node peter_smith = addNode("Peter Smith");
 			Node john_smith  = addNode("John Smith");
@@ -75,7 +77,8 @@ public class Neo4jCreate {
 			addRelationship(paper4,conference,eswc);
 			addRelationship(paper5,conference,iswc);
 
-			author = DynamicRelationshipType.withName("author");
+			// INSERT CODE HERE
+			// For creating the relationship type for 'author'
 			addRelationship(paper1,author,peter_smith);
 			addRelationship(paper2,author,john_smith);
 			addRelationship(paper3,author,peter_smith);
@@ -88,7 +91,8 @@ public class Neo4jCreate {
 			addRelationship(paper1,cites,paper2);
 			addRelationship(paper3,cites,paper1);
 			addRelationship(paper3,cites,paper4);
-			addRelationship(paper4,cites,paper2);
+			// INSERT CODE HERE
+			// For creating the relationship < paper4 'cites' paper2 >
 
 		} finally {
 			tx.success();
@@ -98,6 +102,8 @@ public class Neo4jCreate {
 	}
 
 	public static Node addNode(String id) {
+		// CHECK THIS OUT
+		// This is how you create a new node in Neo4j
 		Node n = g.createNode();
 		n.setProperty("id",id);
 		index.add(n,"id",id);
@@ -105,6 +111,8 @@ public class Neo4jCreate {
 	}
 
 	public static void addRelationship(Node src, DynamicRelationshipType rel, Node dst) {
+		// CHECK THIS OUT
+		// This is how you create a relationship in Neo4j
 		src.createRelationshipTo(dst,rel);
 	}
 }

@@ -41,6 +41,7 @@ public class Q03 {
 		v = g.getVertexURI("http://data.semanticweb.org/person/peter-smith");
 		if (v == null) return;
 
+		// Get papers written by Peter Smith in 'papers_ps'
 		it = v.getEdgesIn();
 		while (it.hasNext()) {
 			rel = it.next();
@@ -50,6 +51,7 @@ public class Q03 {
 		}
 		it.close();
 
+		// Get papers cited by -papers written by- Peter Smith in 'papers_cited_ps'
 		for (Vertex p : papers_ps) {
 			it = p.getEdgesOut();
 			while (it.hasNext()) {
@@ -57,14 +59,19 @@ public class Q03 {
 				if (rel.getURI().equals("http://swrc.ontoware.org/ontology#biblioReference")) {
 					temp = rel.getEnd();
 					papers_cited_ps.add(temp);
-					result.add(temp);
+					// INSERT CODE HERE
+					// Vertex 'temp' should also be included
+					// in 'result', don't you think?
 				}
 			}
 			it.close();
 		}
 
+		// Get papers cited by papers cited by Peter Smith
 		for (Vertex p : papers_cited_ps) {
-			it = p.getEdgesOut();
+			it = p./* INSERT CODE HERE */;
+			// Use 'getEdgesIn()' or 'getEdgesOut()'
+			// Which one is it going to be ?
 			while (it.hasNext()) {
 				rel = it.next();
 				if (rel.getURI().equals("http://swrc.ontoware.org/ontology#biblioReference"))
@@ -73,6 +80,7 @@ public class Q03 {
 			it.close();
 		}
 
+		// Lets print the results
 		for (Vertex r : result)
 			System.out.println(r.getAny());
 	}

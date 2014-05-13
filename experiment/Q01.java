@@ -34,7 +34,9 @@ public class Q01 {
 		Edge rel;
 		GraphIterator<Edge> it;
 
-		v = g.getVertexURI("http://data.semanticweb.org/person/peter-smith");
+		// Find the node for 'Peter Smith'
+		// This time, is represented as an URI
+		v = g.getVertexURI(/* INSERT String HERE */);
 		if (v == null) return;
 
 		it = v.getEdgesIn();
@@ -42,6 +44,9 @@ public class Q01 {
 			rel = it.next();
 			if (rel.getURI().equals("http://swrc.ontoware.org/ontology#author")) {
 				System.out.println(rel.getStart().getAny());
+				// HINT: For the Graphium API you can use 'getStart()'
+				// or 'getEnd()' for getting both sides of any edge.
+				// Which one you need?
 			}
 		}
 		it.close();

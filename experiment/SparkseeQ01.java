@@ -51,7 +51,8 @@ public class SparkseeQ01 {
 			Objects obj;
 			ObjectsIterator it;
 
-			v = g.findObject(AttrType,val.setString("Peter Smith"));
+			// Find the node for 'Peter Smith'
+			v = g.findObject(AttrType,val.setString(/* INSERT String HERE */));
 			if (v==Objects.InvalidOID) return;
 
 			int author = g.findType("author");
@@ -60,8 +61,9 @@ public class SparkseeQ01 {
 			while (it.hasNext()) {
 				System.out.println(g.getAttribute(it.next(),AttrType).getString());
 			}
-			it.close();
-			obj.close();
+			// INSERT CODE HERE
+			// In Sparksee remember to always close any 'Objects'
+			// or 'ObjectsIterator' after you finish using it
 
 		} catch (FileNotFoundException e) {
 			System.err.println("Error: " + e.getMessage());

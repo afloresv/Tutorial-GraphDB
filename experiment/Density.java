@@ -43,16 +43,22 @@ public class Density {
 			n_Nodes++;
 
 			ite = v.getEdgesOut();
-			while (ite.hasNext()) {
-				e = ite.next();
-				n_Edges++;
-			}
+
+			// INSERT CODE HERE
+			// Now, for every node you can iterate over it's outgoing
+			// edges to count the total amount of edges in the graph.
+
 			ite.close();
 		}
 		it.close();
 
 		g.close();
 
+		// Print the density of the RDF graph using the following formula:
+		// Given a graph G = (V,E)
+		//                   |E|
+		// Density(G) = --------------
+		//               |V| * (|V|-1)
 		System.out.println(((double)n_Edges)/((double)n_Nodes*(n_Nodes-1)));
 	}
 }

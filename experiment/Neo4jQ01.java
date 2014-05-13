@@ -54,14 +54,18 @@ public class Neo4jQ01 {
 		Relationship rel;
 		Iterator<Relationship> it;
 
-		v = index.get("id","Peter Smith").getSingle();
+		// Find the node for 'Peter Smith'
+		v = index.get("id",/* INSERT String HERE */).getSingle();
 		if (v == null) return;
 
+		// Get incoming relationships with type 'author'
 		DynamicRelationshipType author = DynamicRelationshipType.withName("author");
 		it = v.getRelationships(author,Direction.INCOMING).iterator();
 		while (it.hasNext()) {
 			rel = it.next();
-			System.out.println(rel.getStartNode().getProperty("id"));
+			System.out.println(rel./* INSERT CODE HERE */.getProperty("id"));
+			// HINT: Use 'getStartNode()' or 'getEndNode()'
+			// Which one you need?
 		}
 
 		g.shutdown();

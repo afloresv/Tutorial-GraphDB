@@ -34,13 +34,17 @@ public class Q02 {
 		Edge rel;
 		GraphIterator<Edge> it;
 
+		// Use any container class to contain a Vertex set
 		HashSet<Vertex> papers_ps = new HashSet<Vertex>();
 		HashSet<Vertex> papers_cited_ps = new HashSet<Vertex>();
 
 		v = g.getVertexURI("http://data.semanticweb.org/person/peter-smith");
 		if (v == null) return;
 
-		it = v.getEdgesIn();
+		// First we get the Nodes of papers written by Peter Smith in 'papers_ps'
+		it = v./* INSERT CODE HERE */;
+		// HINT: You can use 'getEdgesIn()' or 'getEdgesOut()'
+		// Which one you should use?
 		while (it.hasNext()) {
 			rel = it.next();
 			if (rel.getURI().equals("http://swrc.ontoware.org/ontology#author")) {
@@ -54,6 +58,8 @@ public class Q02 {
 			while (it.hasNext()) {
 				rel = it.next();
 				if (rel.getURI().equals("http://swrc.ontoware.org/ontology#biblioReference")) {
+					// INSERT CODE HERE
+					// Add the end vertex of the relationship to 'papers_cited_ps'
 					papers_cited_ps.add(rel.getEnd());
 				}
 			}
@@ -72,7 +78,9 @@ public class Q02 {
 					break;
 				}
 			}
-			it.close();
+			// INSERT CODE HERE
+			// Like in Sparksee, in Graphium you must close every
+			// 'GraphIterator' object after you finish using it
 		}
 	}
 }
