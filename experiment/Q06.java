@@ -104,5 +104,7 @@ public class Q06 {
 
 		// Print the result
 		System.out.println(inFinal);
+		
+		g.close();
 	}
 }
