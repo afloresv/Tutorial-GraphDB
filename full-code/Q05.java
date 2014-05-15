@@ -41,6 +41,7 @@ public class Q05 {
 		v = g.getVertexURI("http://data.semanticweb.org/person/peter-smith");
 		if (v == null) return;
 
+		// Get papers written by Peter Smith in 'papers_ps'
 		it = v.getEdgesIn();
 		while (it.hasNext()) {
 			rel = it.next();
@@ -50,6 +51,7 @@ public class Q05 {
 		}
 		it.close();
 
+		// Get papers cited by -papers written by- Peter Smith in 'papers_cited_ps'
 		for (Vertex p : papers_ps) {
 			it = p.getEdgesOut();
 			while (it.hasNext()) {
@@ -63,6 +65,7 @@ public class Q05 {
 			it.close();
 		}
 
+		// Get papers cited by -papers written by- Peter Smith in 'papers_cited_ps'
 		for (Vertex p : papers_cited_ps) {
 			it = p.getEdgesOut();
 			while (it.hasNext()) {
@@ -73,12 +76,16 @@ public class Q05 {
 			it.close();
 		}
 
+		// Now lets find out how many of the papers in
+		// the result set where published at ESWC
 		int inESWC = 0;
 		for (Vertex p : result) {
 			it = p.getEdgesOut();
 			while (it.hasNext()) {
 				rel = it.next();
 				temp = rel.getEnd();
+				// HINT: Which URI is used for relating a paper with a conference?
+				// Check the publications.nt file to get the answer
 				if (rel.getURI().equals("http://data.semanticweb.org/ns/swc/ontology#isPartOf")
 					&& temp.isURI()
 					&& temp.getURI().equals("http://data.semanticweb.org/conference/eswc/2012"))
@@ -86,6 +93,10 @@ public class Q05 {
 			}
 			it.close();
 		}
+
+		// Print the result
 		System.out.println(inESWC);
+		
+		g.close();
 	}
 }

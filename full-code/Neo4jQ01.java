@@ -54,9 +54,11 @@ public class Neo4jQ01 {
 		Relationship rel;
 		Iterator<Relationship> it;
 
+		// Find the node for 'Peter Smith'
 		v = index.get("id","Peter Smith").getSingle();
 		if (v == null) return;
 
+		// Get incoming relationships with type 'author'
 		DynamicRelationshipType author = DynamicRelationshipType.withName("author");
 		it = v.getRelationships(author,Direction.INCOMING).iterator();
 		while (it.hasNext()) {

@@ -41,6 +41,7 @@ public class Q04 {
 		v = g.getVertexURI("http://data.semanticweb.org/person/peter-smith");
 		if (v == null) return;
 
+		// Get papers written by Peter Smith in 'papers_ps'
 		it = v.getEdgesIn();
 		while (it.hasNext()) {
 			rel = it.next();
@@ -50,6 +51,7 @@ public class Q04 {
 		}
 		it.close();
 
+		// Get papers cited by -papers written by- Peter Smith in 'papers_cited_ps'
 		for (Vertex p : papers_ps) {
 			it = p.getEdgesOut();
 			while (it.hasNext()) {
@@ -63,6 +65,7 @@ public class Q04 {
 			it.close();
 		}
 
+		// Get papers cited by papers cited by Peter Smith
 		for (Vertex p : papers_cited_ps) {
 			it = p.getEdgesOut();
 			while (it.hasNext()) {
@@ -74,5 +77,7 @@ public class Q04 {
 		}
 
 		System.out.println(result.size());
+		
+		g.close();
 	}
 }

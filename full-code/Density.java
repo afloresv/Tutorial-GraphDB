@@ -53,6 +53,10 @@ public class Density {
 
 		g.close();
 
+		// Given a graph G = (V,E)
+		//                   |E|
+		// Density(G) = --------------
+		//               |V| * (|V|-1)
 		System.out.println(((double)n_Edges)/((double)n_Nodes*(n_Nodes-1)));
 	}
 }

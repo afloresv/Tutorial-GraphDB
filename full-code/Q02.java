@@ -34,12 +34,14 @@ public class Q02 {
 		Edge rel;
 		GraphIterator<Edge> it;
 
+		// Use any container class to contain a Vertex set
 		HashSet<Vertex> papers_ps = new HashSet<Vertex>();
 		HashSet<Vertex> papers_cited_ps = new HashSet<Vertex>();
 
 		v = g.getVertexURI("http://data.semanticweb.org/person/peter-smith");
 		if (v == null) return;
 
+		// First we get the Nodes of papers written by Peter Smith in 'papers_ps'
 		it = v.getEdgesIn();
 		while (it.hasNext()) {
 			rel = it.next();
@@ -61,18 +63,19 @@ public class Q02 {
 		}
 
 		for (Vertex p : papers_cited_ps) {
-			it = p.getEdgesIn();
 			int cited = 0;
+			it = p.getEdgesIn();
 			while (it.hasNext()) {
 				rel = it.next();
 				if (rel.getURI().equals("http://swrc.ontoware.org/ontology#biblioReference"))
 					cited++;
-				if (cited==20) {
-					System.out.println(p.getAny());
-					break;
-				}
 			}
 			it.close();
+
+			if (cited<=2)
+				System.out.println(p.getAny());
 		}
+		
+		g.close();
 	}
 }

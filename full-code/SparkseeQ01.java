@@ -51,6 +51,7 @@ public class SparkseeQ01 {
 			Objects obj;
 			ObjectsIterator it;
 
+			// Find the node for 'Peter Smith'
 			v = g.findObject(AttrType,val.setString("Peter Smith"));
 			if (v==Objects.InvalidOID) return;
 
@@ -61,7 +62,6 @@ public class SparkseeQ01 {
 				System.out.println(g.getAttribute(it.next(),AttrType).getString());
 			}
 			it.close();
-			obj.close();
 
 		} catch (FileNotFoundException e) {
 			System.err.println("Error: " + e.getMessage());

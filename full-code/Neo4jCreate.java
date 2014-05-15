@@ -98,6 +98,8 @@ public class Neo4jCreate {
 	}
 
 	public static Node addNode(String id) {
+		// CHECK THIS OUT
+		// This is how you create a new node in Neo4j
 		Node n = g.createNode();
 		n.setProperty("id",id);
 		index.add(n,"id",id);
@@ -105,6 +107,8 @@ public class Neo4jCreate {
 	}
 
 	public static void addRelationship(Node src, DynamicRelationshipType rel, Node dst) {
+		// CHECK THIS OUT
+		// This is how you create a relationship in Neo4j
 		src.createRelationshipTo(dst,rel);
 	}
 }

@@ -41,6 +41,7 @@ public class Q06 {
 		v = g.getVertexURI("http://data.semanticweb.org/person/peter-smith");
 		if (v == null) return;
 
+		// Get papers written by Peter Smith in 'papers_ps'
 		it = v.getEdgesIn();
 		while (it.hasNext()) {
 			rel = it.next();
@@ -50,6 +51,7 @@ public class Q06 {
 		}
 		it.close();
 
+		// Get papers cited by -papers written by- Peter Smith in 'papers_cited_ps'
 		for (Vertex p : papers_ps) {
 			it = p.getEdgesOut();
 			while (it.hasNext()) {
@@ -63,6 +65,7 @@ public class Q06 {
 			it.close();
 		}
 
+		// Get papers cited by -papers written by- Peter Smith in 'papers_cited_ps'
 		for (Vertex p : papers_cited_ps) {
 			it = p.getEdgesOut();
 			while (it.hasNext()) {
@@ -73,6 +76,9 @@ public class Q06 {
 			it.close();
 		}
 
+		// Now lets find out how many of the papers in
+		// the result set where published at ESWC and
+		// have more than 4 co-authors
 		int inFinal = 0;
 		for (Vertex p : result) {
 			it = p.getEdgesOut();
@@ -90,9 +96,15 @@ public class Q06 {
 					authors++;
 			}
 			it.close();
+			// What is the condition that the paper in Vertex p must
+			// fulfill to be acounted as part of the final result set?
 			if (inESWC && authors<=4)
 				inFinal++;
 		}
+
+		// Print the result
 		System.out.println(inFinal);
+		
+		g.close();
 	}
 }

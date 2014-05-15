@@ -34,6 +34,8 @@ public class Q01 {
 		Edge rel;
 		GraphIterator<Edge> it;
 
+		// Find the node for 'Peter Smith'
+		// This time, is represented as an URI
 		v = g.getVertexURI("http://data.semanticweb.org/person/peter-smith");
 		if (v == null) return;
 
@@ -45,5 +47,7 @@ public class Q01 {
 			}
 		}
 		it.close();
+		
+		g.close();
 	}
 }

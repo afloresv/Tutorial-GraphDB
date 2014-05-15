@@ -96,12 +96,16 @@ public class SparkseeCreate {
 	}
 
 	public static long addNode(String id) {
+		// CHECK THIS OUT
+		// This is how you create a new node in Sparksee
 		long n = g.newNode(NodeType);
 		g.setAttribute(n,AttrType,val.setString(id));
 		return n;
 	}
 
 	public static void addRelationship(long src, int rel, long dst) {
+		// CHECK THIS OUT
+		// This is how you create a relationship in Sparksee
 		g.newEdge(rel,src,dst);
 	}
 }
