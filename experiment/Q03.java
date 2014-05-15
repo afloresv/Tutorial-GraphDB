@@ -83,5 +83,7 @@ public class Q03 {
 		// Lets print the results
 		for (Vertex r : result)
 			System.out.println(r.getAny());
+		
+		g.close();
 	}
 }
