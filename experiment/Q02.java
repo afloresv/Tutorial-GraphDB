@@ -60,7 +60,6 @@ public class Q02 {
 				if (rel.getURI().equals("http://swrc.ontoware.org/ontology#biblioReference")) {
 					// INSERT CODE HERE
 					// Add the end vertex of the relationship to 'papers_cited_ps'
-					papers_cited_ps.add(rel.getEnd());
 				}
 			}
 			it.close();
@@ -82,5 +81,7 @@ public class Q02 {
 			// Like in Sparksee, in Graphium you must close every
 			// 'GraphIterator' object after you finish using it
 		}
+		
+		g.close();
 	}
 }
