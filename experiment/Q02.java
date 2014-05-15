@@ -73,7 +73,7 @@ public class Q02 {
 				if (rel.getURI().equals("http://swrc.ontoware.org/ontology#biblioReference"))
 					cited++;
 			}
-			if (cited<=20)
+			if (cited<=2)
 				System.out.println(p.getAny());
 			
 			// INSERT CODE HERE
