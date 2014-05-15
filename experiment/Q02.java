@@ -72,11 +72,10 @@ public class Q02 {
 				rel = it.next();
 				if (rel.getURI().equals("http://swrc.ontoware.org/ontology#biblioReference"))
 					cited++;
-				if (cited==20) {
-					System.out.println(p.getAny());
-					break;
-				}
 			}
+			if (cited<=20)
+				System.out.println(p.getAny());
+			
 			// INSERT CODE HERE
 			// Like in Sparksee, in Graphium you must close every
 			// 'GraphIterator' object after you finish using it
