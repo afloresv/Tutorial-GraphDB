@@ -43,10 +43,10 @@ public class Q01 {
 		while (it.hasNext()) {
 			rel = it.next();
 			if (rel.getURI().equals("http://swrc.ontoware.org/ontology#author")) {
-				System.out.println(rel.getStart().getAny());
+				System.out.println(rel./* INSERT CODE HERE */.getAny());
 				// HINT: For the Graphium API you can use 'getStart()'
 				// or 'getEnd()' for getting both sides of any edge.
-				// Which one you need?
+				// Which one do you need?
 			}
 		}
 		it.close();
