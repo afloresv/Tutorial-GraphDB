@@ -66,19 +66,19 @@ public class Q02 {
 		}
 
 		for (Vertex p : papers_cited_ps) {
-			it = p.getEdgesIn();
 			int cited = 0;
+			it = p.getEdgesIn();
 			while (it.hasNext()) {
 				rel = it.next();
 				if (rel.getURI().equals("http://swrc.ontoware.org/ontology#biblioReference"))
 					cited++;
 			}
-			if (cited<=2)
-				System.out.println(p.getAny());
-			
 			// INSERT CODE HERE
 			// Like in Sparksee, in Graphium you must close every
 			// 'GraphIterator' object after you finish using it
+
+			if (cited<=2)
+				System.out.println(p.getAny());
 		}
 		
 		g.close();
