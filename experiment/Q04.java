@@ -79,5 +79,7 @@ public class Q04 {
 		// INSERT CODE HERE
 		// The only difference with Query #3
 		// Print only the size of the result set...
+		
+		g.close();
 	}
 }
