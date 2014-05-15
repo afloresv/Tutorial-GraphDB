@@ -50,5 +50,7 @@ public class Q01 {
 			}
 		}
 		it.close();
+		
+		g.close();
 	}
 }
