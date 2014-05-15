@@ -96,5 +96,7 @@ public class Q05 {
 
 		// Print the result
 		System.out.println(inESWC);
+		
+		g.close();
 	}
 }
