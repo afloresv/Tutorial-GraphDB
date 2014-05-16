@@ -16,8 +16,8 @@ Assignments
 
 The hands-on session will be comprised of the following four assignments.
 
-1. Implement the following query: “_Papers written by Peter Smith_”. Use the Sparksee API (http://sparsity-technologies.com/downloads/javadoc-java/index.html) and Neo4j API (http://api.neo4j.org/2.1.0-M01/).
-2. Implement the following queries using the Graphium API (http://graphium.ldc.usb.ve):
+1. Implement the following query: “_Papers written by Peter Smith_”. Use the [Sparksee API](http://sparsity-technologies.com/downloads/javadoc-java/index.html) and [Neo4j API](http://api.neo4j.org/2.1.0-M01/).
+2. Implement the following queries using the [Graphium API](http://graphium.ldc.usb.ve):
 	1. "_Papers written by Peter Smith_"
 	2. "_Papers cited by a paper written by Peter Smith that have at most 2 cites_"
 	3. "_Papers cited by a paper written by Peter Smith or cited by papers cited by a paper written by Peter Smith_"
@@ -27,4 +27,8 @@ The hands-on session will be comprised of the following four assignments.
 3. Implement graph invariants using the Graphium API:
 	1. Number of nodes/vertices in the graph.
 	2. Graph Density.
-4. Compute graph invariant of different RDF graphs and upload the results in the Graphium Chrysalis website (http://graphium.ldc.usb.ve/chrysalis/).
+4. Compute graph invariant of different RDF graphs, using the Chrysalis tool, and upload the results in the [Graphium Chrysalis website](http://graphium.ldc.usb.ve/chrysalis/).
+
+-----
+
+You've been given an _almost_ complete code for the previous assignments at the `experiment/` folder. You have to complete the codes each where is indicated with an `INSERT CODE HERE` or `INSERT String HERE` inside a comment.
