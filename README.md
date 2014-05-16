@@ -23,12 +23,12 @@ Assignments
 
 1. Implement the following query: “Papers written by Peter Smith”. Use the Sparksee API and Neo4j API.
 2. Implement the following queries using the Graphium API3: 
-	1. "Papers written by Peter Smith"
-	2. "Papers cited by a paper written by Peter Smith that have at most 20 cites"
-	3. "Papers cited by a paper written by Peter Smith or cited by papers cited by a paper written by Peter Smith"
-	4. "Number of papers cited by a paper written by Peter Smith or cited by papers cited by a paper written by Peter Smith"
-	5. "Number of papers cited by a paper written by Peter Smith or cited by papers cited by a paper written by Peter Smith, and have been published in ESWC"
-	6. "Number of papers cited by a paper written by Peter Smith or cited by papers cited by a paper written by Peter Smith, have been published in ESWC and have at most 4 co-authors"
-3. Implement graph invariants using the Graphium API
-	1. Number of nodes/vertices in the graph
-	2. Graph Density
+	1. "_Papers written by Peter Smith_"
+	2. "_Papers cited by a paper written by Peter Smith that have at most 20 cites_"
+	3. "_Papers cited by a paper written by Peter Smith or cited by papers cited by a paper written by Peter Smith_"
+	4. "_Number of papers cited by a paper written by Peter Smith or cited by papers cited by a paper written by Peter Smith_"
+	5. "_Number of papers cited by a paper written by Peter Smith or cited by papers cited by a paper written by Peter Smith, and have been published in ESWC_"
+	6. "_Number of papers cited by a paper written by Peter Smith or cited by papers cited by a paper written by Peter Smith, have been published in ESWC and have at most 4 co-authors_"
+3. Implement graph invariants using the Graphium API:
+	1. Number of nodes/vertices in the graph.
+	2. Graph Density.
