@@ -41,11 +41,11 @@ You can run any class on the `experiment/` folder by using:
 
 So, to create the Neo4j DB for the publications dataset, run:
 
-	> ./publication Neo4jCreate your_neo4j_path/
+	> ./publications Neo4jCreate your_neo4j_path/
 
 Similarly, creating the Sparksee DB is done by running:
 
-	> ./publication SparkseeCreate your_sparksee_path/
+	> ./publications SparkseeCreate your_sparksee_path/
 
 For creating a Graphium RDF Graph, use the script:
 
