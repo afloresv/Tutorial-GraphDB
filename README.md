@@ -31,4 +31,22 @@ The hands-on session will be comprised of the following four assignments.
 
 -----
 
-You've been given an _almost_ complete code for the previous assignments at the `experiment/` folder. You have to complete the codes each where is indicated with an `INSERT CODE HERE` or `INSERT String HERE` inside a comment.
+You've been given an almost complete code, for the previous assignments at the `experiment/` folder. You have to complete the code where is indicated with an `INSERT CODE HERE` or `INSERT String HERE` inside a comment.
+
+To test the assignment, you need to compile the code first. Open the terminal, go to the home folder of the _Hands-On material_, and run the `make` command.
+
+You can run any class on the `experiment/` folder by using:
+
+	> ./publications <Name of the class> <Graph DB path>
+
+So, to create the Neo4j DB for the publications dataset, run:
+
+	> ./publication Neo4jCreate your_neo4j_path/
+
+Similarly, creating the Sparksee DB is done by running:
+
+	> ./publication SparkseeCreate your_sparksee_path/
+
+For creating a Graphium RDF Graph, use the script:
+
+	> ./create <Back-end GDBM (Neo4j or Sparksee)> <.nt file> <path>
