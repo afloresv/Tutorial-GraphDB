@@ -50,3 +50,9 @@ Similarly, creating the Sparksee DB is done by running:
 For creating a Graphium RDF Graph, use the script:
 
 	> ./create <Back-end GDBM (Neo4j or Sparksee)> <.nt file> <path>
+
+The RDF version of the dataset is described in the file `publications.nt` at the home folder.
+
+Finally, to run the _Graphium Chrysalis analizer_ use:
+
+	> ./chrysalis <GraphiumDB-path>
