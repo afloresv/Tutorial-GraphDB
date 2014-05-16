@@ -17,3 +17,18 @@ The hands-on session will be comprised of the following four assignments.
 2. Implement a set of queries using the Graphium API (http://graphium.ldc.usb.ve).
 3. Implement different graph invariants using the RDF-based Graphium API (http://graphium.ldc.usb.ve/chrysalis/). 
 4. Compute graph invariant of different RDF graphs and upload the results in the portal Graphium Chrysalis (http://graphium.ldc.usb.ve/chrysalis/)
+
+Assignments
+-----------
+
+1. Implement the following query: “Papers written by Peter Smith”. Use the Sparksee API and Neo4j API.
+2. Implement the following queries using the Graphium API3: 
+	1. "Papers written by Peter Smith"
+	2. "Papers cited by a paper written by Peter Smith that have at most 20 cites"
+	3. "Papers cited by a paper written by Peter Smith or cited by papers cited by a paper written by Peter Smith"
+	4. "Number of papers cited by a paper written by Peter Smith or cited by papers cited by a paper written by Peter Smith"
+	5. "Number of papers cited by a paper written by Peter Smith or cited by papers cited by a paper written by Peter Smith, and have been published in ESWC"
+	6. "Number of papers cited by a paper written by Peter Smith or cited by papers cited by a paper written by Peter Smith, have been published in ESWC and have at most 4 co-authors"
+3. Implement graph invariants using the Graphium API
+	1. Number of nodes/vertices in the graph
+	2. Graph Density
