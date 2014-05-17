@@ -106,4 +106,14 @@ Complete the code in `experiment/Density.java`, and run (in the terminal)...
 4) Compute graph invariant of different RDF graphs, using the Chrysalis tool, and upload the results in the [Graphium Chrysalis website](http://graphium.ldc.usb.ve/chrysalis/).
 ---
 
-A
+Go to the [DAW website](algo) and download one of the datasets (.nt files). Then...
+
+	> ./create <Neo4j or Sparksee> <.nt file path> test_db
+	> ./chrysalis test_db
+
+Now, go to the [Graphium Chrysalis website](http://graphium.ldc.usb.ve/chrysalis/) and upload the file `chrysalis.log` to visualize it.
+
+
+----
+
+After you finish every assignment, you can zip this folder and send it to the [judge](mailto:graphium@ldc.usb.ve). Good luck!
