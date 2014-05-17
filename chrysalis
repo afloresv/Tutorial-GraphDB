@@ -6,13 +6,13 @@ echo " | © Universidad Simon Bolivar |"
 echo " +-----------------------------+"
 echo -n " Analizing..."
 mkdir log
-java $FLAGS -classpath $LIBS ve.usb.ldc.graphium.chrysalis.run $@ > log/chrysalis.log 2>> log/error.log
+java $FLAGS -classpath $LIBS ve.usb.ldc.graphium.chrysalis.run $@ > chrysalis.log 2>> log/Graphium.log
 if [ $? -ne 0 ]; then
 	echo ""
 	echo " Something went wrong... Check log/Graphium.log"
 	exit 1
 fi
 echo " Done."
-echo " Data saved in 'log/chrysalis.log'"
+echo " Data saved in 'chrysalis.log'"
 echo " Go to graphium.ldc.usb.ve/chrysalis/ to visualize this results."
 echo " Thanks!"
