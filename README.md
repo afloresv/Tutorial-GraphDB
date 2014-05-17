@@ -17,6 +17,9 @@ Assignments
 The hands-on session will be comprised of the following four assignments.
 
 1. Implement the following query: “_Papers written by Peter Smith_”. Use the [Sparksee API](http://sparsity-technologies.com/downloads/javadoc-java/index.html) and [Neo4j API](http://api.neo4j.org/2.1.0-M01/).
+
+Probando
+
 2. Implement the following queries using the [Graphium API](http://graphium.ldc.usb.ve):
 	1. "_Papers written by Peter Smith_"
 	2. "_Papers cited by a paper written by Peter Smith that have at most 2 cites_"
