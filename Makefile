@@ -3,8 +3,57 @@ SPARKSEE = lib/sparkseejava.jar
 GRAPHIUM = lib/graphium.jar
 
 LIBS = "./:$(NEO):$(SPARKSEE):$(GRAPHIUM)"
-FLAGS = -source 6 -nowarn -cp $(LIBS)
+CLEAR = rm -f experiment/
+COMPILE = javac -source 6 -nowarn -cp $(LIBS) experiment/
 
 all:
-	rm -f experiment/*.class
-	javac $(FLAGS) experiment/*.java
+	$(CLEAR)*.class
+	$(COMPILE)*.java
+
+Neo4jCreate:
+	$(CLEAR)Neo4jCreate.class
+	$(COMPILE)Neo4jCreate.java
+
+Neo4jQuery:
+	$(CLEAR)Neo4jQuery.class
+	$(COMPILE)Neo4jQuery.java
+
+SparkseeCreate:
+	$(CLEAR)SparkseeCreate.class
+	$(COMPILE)SparkseeCreate.java
+
+SparkseeQuery:
+	$(CLEAR)SparkseeQuery.class
+	$(COMPILE)SparkseeQuery.java
+
+A:
+	$(CLEAR)A.class
+	$(COMPILE)A.java
+
+B:
+	$(CLEAR)B.class
+	$(COMPILE)B.java
+
+C:
+	$(CLEAR)C.class
+	$(COMPILE)C.java
+
+D:
+	$(CLEAR)D.class
+	$(COMPILE)D.java
+
+E:
+	$(CLEAR)E.class
+	$(COMPILE)E.java
+
+F:
+	$(CLEAR)F.class
+	$(COMPILE)F.java
+
+Nodes:
+	$(CLEAR)Nodes.class
+	$(COMPILE)Nodes.java
+
+Density:
+	$(CLEAR)Density.class
+	$(COMPILE)Density.java
