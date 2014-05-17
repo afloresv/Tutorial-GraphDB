@@ -12,50 +12,98 @@ Hands-On
 Attendees will be able to participate in a hands-on session and implement different graph-core tasks using the API’s offered by existing graph database engines. We will provide different libraries in Java to interact with the API’s of Neo4j and Sparksee. We assume that participants have installed Java 6, and a text editor in their laptops. Mac and Linux environments are also recommended.
 
 Assignments
------------
+===========
 
-The hands-on session will be comprised of the following four assignments.
+The hands-on session will be comprised of four assignments.
 
-1. Implement the following query: “_Papers written by Peter Smith_”. Use the [Sparksee API](http://sparsity-technologies.com/downloads/javadoc-java/index.html) and [Neo4j API](http://api.neo4j.org/2.1.0-M01/).
+First of all, open the terminal an go to the Hands-On folder. You've been given an almost complete code, for the previous assignments at the `experiment/` folder. You have to complete the code where is indicated with an `INSERT CODE HERE` or `INSERT String HERE` inside a comment.
 
-Probando
+1) Implement the query “_Papers written by Peter Smith_” using the [Sparksee API](http://sparsity-technologies.com/downloads/javadoc-java/index.html) and [Neo4j API](http://api.neo4j.org/2.1.0-M01/).
+----
 
-2. Implement the following queries using the [Graphium API](http://graphium.ldc.usb.ve):
-	1. "_Papers written by Peter Smith_"
-	2. "_Papers cited by a paper written by Peter Smith that have at most 2 cites_"
-	3. "_Papers cited by a paper written by Peter Smith or cited by papers cited by a paper written by Peter Smith_"
-	4. "_Number of papers cited by a paper written by Peter Smith or cited by papers cited by a paper written by Peter Smith_"
-	5. "_Number of papers cited by a paper written by Peter Smith or cited by papers cited by a paper written by Peter Smith, and have been published in ESWC_"
-	6. "_Number of papers cited by a paper written by Peter Smith or cited by papers cited by a paper written by Peter Smith, have been published in ESWC and have at most 4 co-authors_"
-3. Implement graph invariants using the Graphium API:
-	1. Number of nodes/vertices in the graph.
-	2. Graph Density.
-4. Compute graph invariant of different RDF graphs, using the Chrysalis tool, and upload the results in the [Graphium Chrysalis website](http://graphium.ldc.usb.ve/chrysalis/).
+Complete the code for Neo4j, located in the files `experiment/Neo4jCreate.java` and `experiment/Neo4jQuery.java`. Then..
 
------
+	> make Neo4jCreate
+	> make Neo4jQuery
+	> ./publications Neo4jCreate neo4j_db
+	> ./publications Neo4jQuery neo4j_db
 
-You've been given an almost complete code, for the previous assignments at the `experiment/` folder. You have to complete the code where is indicated with an `INSERT CODE HERE` or `INSERT String HERE` inside a comment.
+Now complete the code for Sparksee, located in the files `experiment/SparkseeCreate.java` and `experiment/SparkseeQuery.java`. Then..
 
-To test the assignment, you need to compile the code first. Open the terminal, go to the home folder of the _Hands-On material_, and run the `make` command.
+	> make SparkseeCreate
+	> make SparkseeQuery
+	> ./publications SparkseeCreate sparksee_db
+	> ./publications SparkseeQuery sparksee_db
 
-You can run any class on the `experiment/` folder by using:
+2) Implement the following queries using the [Graphium API](http://graphium.ldc.usb.ve).
+----
 
-	> ./publications <Name of the class> <Graph DB path>
+First, let's create the Graphium DB from the _NT_ file `publications.nt`:
 
-So, to create the Neo4j DB for the publications dataset, run:
+	> ./create <Neo4j or Sparksee> publications.nt graphium_db
 
-	> ./publications Neo4jCreate your_neo4j_path/
+Now...
 
-Similarly, creating the Sparksee DB is done by running:
+* _Papers written by Peter Smith_
 
-	> ./publications SparkseeCreate your_sparksee_path/
+Complete the code in `experiment/A.java`, and run (in the terminal)...
 
-For creating a Graphium RDF Graph, use the script:
+	> make A
+	> ./publications A graphium_db
 
-	> ./create <Back-end GDBM (Neo4j or Sparksee)> <.nt file> <path>
+* _Papers cited by a paper written by Peter Smith that have at most 2 cites_
 
-The RDF version of the dataset is described in the file `publications.nt` at the home folder.
+Complete the code in `experiment/B.java`, and run (in the terminal)...
 
-Finally, to run the _Graphium Chrysalis analizer_ use:
+	> make B
+	> ./publications B graphium_db
 
-	> ./chrysalis <GraphiumDB-path>
+* _Papers cited by a paper written by Peter Smith or cited by papers cited by a paper written by Peter Smith_
+
+Complete the code in `experiment/C.java`, and run (in the terminal)...
+
+	> make C
+	> ./publications C graphium_db
+
+* _Number of papers cited by a paper written by Peter Smith or cited by papers cited by a paper written by Peter Smith_
+
+Complete the code in `experiment/D.java`, and run (in the terminal)...
+
+	> make D
+	> ./publications D graphium_db
+
+* _Number of papers cited by a paper written by Peter Smith or cited by papers cited by a paper written by Peter Smith, and have been published in ESWC_
+
+Complete the code in `experiment/E.java`, and run (in the terminal)...
+
+	> make E
+	> ./publications E graphium_db
+
+* _Number of papers cited by a paper written by Peter Smith or cited by papers cited by a paper written by Peter Smith, have been published in ESWC and have at most 4 co-authors_
+
+Complete the code in `experiment/F.java`, and run (in the terminal)...
+
+	> make F
+	> ./publications F graphium_db
+
+3) Implement graph invariants using the Graphium API.
+----
+
+* Number of nodes/vertices in the graph.
+
+Complete the code in `experiment/Nodes.java`, and run (in the terminal)...
+
+	> make Nodes
+	> ./publications Nodes graphium_db
+
+* Graph Density.
+
+Complete the code in `experiment/Density.java`, and run (in the terminal)...
+
+	> make Density
+	> ./publications Density graphium_db
+
+4) Compute graph invariant of different RDF graphs, using the Chrysalis tool, and upload the results in the [Graphium Chrysalis website](http://graphium.ldc.usb.ve/chrysalis/).
+---
+
+A
