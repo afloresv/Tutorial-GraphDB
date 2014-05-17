@@ -24,7 +24,7 @@ import java.io.*;
 
 import ve.usb.ldc.graphium.core.*;
 
-public class Q03 {
+public class F {
 
 	public static void main(String[] args) {
 
@@ -59,19 +59,15 @@ public class Q03 {
 				if (rel.getURI().equals("http://swrc.ontoware.org/ontology#biblioReference")) {
 					temp = rel.getEnd();
 					papers_cited_ps.add(temp);
-					// INSERT CODE HERE
-					// Vertex 'temp' should also be included
-					// in 'result', don't you think?
+					result.add(temp);
 				}
 			}
 			it.close();
 		}
 
-		// Get papers cited by papers cited by Peter Smith
+		// Get papers cited by -papers written by- Peter Smith in 'papers_cited_ps'
 		for (Vertex p : papers_cited_ps) {
-			it = p./* INSERT CODE HERE */;
-			// Use 'getEdgesIn()' or 'getEdgesOut()'
-			// Which one is it going to be ?
+			it = p.getEdgesOut();
 			while (it.hasNext()) {
 				rel = it.next();
 				if (rel.getURI().equals("http://swrc.ontoware.org/ontology#biblioReference"))
@@ -80,9 +76,34 @@ public class Q03 {
 			it.close();
 		}
 
-		// Lets print the results
-		for (Vertex r : result)
-			System.out.println(r.getAny());
+		// Now lets find out how many of the papers in
+		// the result set where published at ESWC and
+		// have more than 4 co-authors
+		int inFinal = 0;
+		for (Vertex p : result) {
+			it = p.getEdgesOut();
+			boolean inESWC = false;
+			int authors = 0;
+			while (it.hasNext()) {
+				rel = it.next();
+				temp = rel.getEnd();
+				URI relType = rel.getURI();
+				if (relType.equals("http://data.semanticweb.org/ns/swc/ontology#isPartOf")
+					&& temp.isURI()
+					&& temp.getURI().equals("http://data.semanticweb.org/conference/eswc/2012"))
+					inESWC = true;
+				else if (relType.equals("http://swrc.ontoware.org/ontology#author"))
+					authors++;
+			}
+			it.close();
+			// What is the condition that the paper in Vertex p must
+			// fulfill to be acounted as part of the final result set?
+			if (inESWC && authors<=4)
+				inFinal++;
+		}
+
+		// Print the result
+		System.out.println(inFinal);
 		
 		g.close();
 	}

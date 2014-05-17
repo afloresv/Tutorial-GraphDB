@@ -24,7 +24,7 @@ import java.io.*;
 
 import ve.usb.ldc.graphium.core.*;
 
-public class Q04 {
+public class C {
 
 	public static void main(String[] args) {
 
@@ -59,7 +59,9 @@ public class Q04 {
 				if (rel.getURI().equals("http://swrc.ontoware.org/ontology#biblioReference")) {
 					temp = rel.getEnd();
 					papers_cited_ps.add(temp);
-					result.add(temp);
+					// INSERT CODE HERE
+					// Vertex 'temp' should also be included
+					// in 'result', don't you think?
 				}
 			}
 			it.close();
@@ -67,7 +69,9 @@ public class Q04 {
 
 		// Get papers cited by papers cited by Peter Smith
 		for (Vertex p : papers_cited_ps) {
-			it = p.getEdgesOut();
+			it = p./* INSERT CODE HERE */;
+			// Use 'getEdgesIn()' or 'getEdgesOut()'
+			// Which one is it going to be ?
 			while (it.hasNext()) {
 				rel = it.next();
 				if (rel.getURI().equals("http://swrc.ontoware.org/ontology#biblioReference"))
@@ -76,7 +80,9 @@ public class Q04 {
 			it.close();
 		}
 
-		System.out.println(result.size());
+		// Lets print the results
+		for (Vertex r : result)
+			System.out.println(r.getAny());
 		
 		g.close();
 	}

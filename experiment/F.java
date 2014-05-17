@@ -24,24 +24,24 @@ import java.io.*;
 
 import ve.usb.ldc.graphium.core.*;
 
-public class Q02 {
+public class F {
 
 	public static void main(String[] args) {
 
 		GraphRDF g = GraphiumLoader.open(args[0]);
 
-		Vertex v;
+		Vertex v, temp;
 		Edge rel;
 		GraphIterator<Edge> it;
 
-		// Use any container class to contain a Vertex set
 		HashSet<Vertex> papers_ps = new HashSet<Vertex>();
 		HashSet<Vertex> papers_cited_ps = new HashSet<Vertex>();
+		HashSet<Vertex> result = new HashSet<Vertex>();
 
 		v = g.getVertexURI("http://data.semanticweb.org/person/peter-smith");
 		if (v == null) return;
 
-		// First we get the Nodes of papers written by Peter Smith in 'papers_ps'
+		// Get papers written by Peter Smith in 'papers_ps'
 		it = v.getEdgesIn();
 		while (it.hasNext()) {
 			rel = it.next();
@@ -51,30 +51,59 @@ public class Q02 {
 		}
 		it.close();
 
+		// Get papers cited by -papers written by- Peter Smith in 'papers_cited_ps'
 		for (Vertex p : papers_ps) {
 			it = p.getEdgesOut();
 			while (it.hasNext()) {
 				rel = it.next();
 				if (rel.getURI().equals("http://swrc.ontoware.org/ontology#biblioReference")) {
-					papers_cited_ps.add(rel.getEnd());
+					temp = rel.getEnd();
+					papers_cited_ps.add(temp);
+					result.add(temp);
 				}
 			}
 			it.close();
 		}
 
+		// Get papers cited by -papers written by- Peter Smith in 'papers_cited_ps'
 		for (Vertex p : papers_cited_ps) {
-			int cited = 0;
-			it = p.getEdgesIn();
+			it = p.getEdgesOut();
 			while (it.hasNext()) {
 				rel = it.next();
 				if (rel.getURI().equals("http://swrc.ontoware.org/ontology#biblioReference"))
-					cited++;
+					result.add(rel.getEnd());
 			}
 			it.close();
-
-			if (cited<=2)
-				System.out.println(p.getAny());
 		}
+
+		// Now lets find out how many of the papers in
+		// the result set where published at ESWC and
+		// have more than 4 co-authors
+		int inFinal = 0;
+		for (Vertex p : result) {
+			it = p.getEdgesOut();
+			boolean inESWC = false;
+			int authors = 0;
+			while (it.hasNext()) {
+				rel = it.next();
+				temp = rel.getEnd();
+				URI relType = rel.getURI();
+				if (relType.equals("http://data.semanticweb.org/ns/swc/ontology#isPartOf")
+					&& temp.isURI()
+					&& temp.getURI().equals("http://data.semanticweb.org/conference/eswc/2012"))
+					inESWC = true;
+				else if (relType.equals("http://swrc.ontoware.org/ontology#author"))
+					authors++;
+			}
+			it.close();
+			// What is the condition that the paper in Vertex p must
+			// fulfill to be acounted as part of the final result set?
+			if (/* INSERT Condition HERE */)
+				inFinal++;
+		}
+
+		// Print the result
+		System.out.println(inFinal);
 		
 		g.close();
 	}

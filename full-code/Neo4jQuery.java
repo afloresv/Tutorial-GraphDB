@@ -32,7 +32,7 @@ import org.neo4j.tooling.*;
 import org.neo4j.kernel.*;
 import org.neo4j.helpers.collection.*;
 
-public class Neo4jQ01 {
+public class Neo4jQuery {
 
 	public static GraphDatabaseService g;
 	public static GlobalGraphOperations globalOP;

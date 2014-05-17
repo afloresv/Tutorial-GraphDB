@@ -24,24 +24,24 @@ import java.io.*;
 
 import ve.usb.ldc.graphium.core.*;
 
-public class Q03 {
+public class B {
 
 	public static void main(String[] args) {
 
 		GraphRDF g = GraphiumLoader.open(args[0]);
 
-		Vertex v, temp;
+		Vertex v;
 		Edge rel;
 		GraphIterator<Edge> it;
 
+		// Use any container class to contain a Vertex set
 		HashSet<Vertex> papers_ps = new HashSet<Vertex>();
 		HashSet<Vertex> papers_cited_ps = new HashSet<Vertex>();
-		HashSet<Vertex> result = new HashSet<Vertex>();
 
 		v = g.getVertexURI("http://data.semanticweb.org/person/peter-smith");
 		if (v == null) return;
 
-		// Get papers written by Peter Smith in 'papers_ps'
+		// First we get the Nodes of papers written by Peter Smith in 'papers_ps'
 		it = v.getEdgesIn();
 		while (it.hasNext()) {
 			rel = it.next();
@@ -51,35 +51,31 @@ public class Q03 {
 		}
 		it.close();
 
-		// Get papers cited by -papers written by- Peter Smith in 'papers_cited_ps'
 		for (Vertex p : papers_ps) {
 			it = p.getEdgesOut();
 			while (it.hasNext()) {
 				rel = it.next();
 				if (rel.getURI().equals("http://swrc.ontoware.org/ontology#biblioReference")) {
-					temp = rel.getEnd();
-					papers_cited_ps.add(temp);
-					result.add(temp);
+					papers_cited_ps.add(rel.getEnd());
 				}
 			}
 			it.close();
 		}
 
-		// Get papers cited by papers cited by Peter Smith
 		for (Vertex p : papers_cited_ps) {
-			it = p.getEdgesOut();
+			int cited = 0;
+			it = p.getEdgesIn();
 			while (it.hasNext()) {
 				rel = it.next();
 				if (rel.getURI().equals("http://swrc.ontoware.org/ontology#biblioReference"))
-					result.add(rel.getEnd());
+					cited++;
 			}
 			it.close();
+
+			if (cited<=2)
+				System.out.println(p.getAny());
 		}
-
-		// Lets print the results
-		for (Vertex r : result)
-			System.out.println(r.getAny());
-
+		
 		g.close();
 	}
 }

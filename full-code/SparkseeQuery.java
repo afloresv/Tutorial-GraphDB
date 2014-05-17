@@ -24,7 +24,7 @@ import java.io.*;
 
 import com.sparsity.sparksee.gdb.*;
 
-public class SparkseeQ01 {
+public class SparkseeQuery {
 
 	public static SparkseeConfig cfg;
 	public static Sparksee sparksee;

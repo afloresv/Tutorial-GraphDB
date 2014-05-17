@@ -24,7 +24,7 @@ import java.io.*;
 
 import ve.usb.ldc.graphium.core.*;
 
-public class Q06 {
+public class E {
 
 	public static void main(String[] args) {
 
@@ -77,33 +77,25 @@ public class Q06 {
 		}
 
 		// Now lets find out how many of the papers in
-		// the result set where published at ESWC and
-		// have more than 4 co-authors
-		int inFinal = 0;
+		// the result set where published at ESWC
+		int inESWC = 0;
 		for (Vertex p : result) {
 			it = p.getEdgesOut();
-			boolean inESWC = false;
-			int authors = 0;
 			while (it.hasNext()) {
 				rel = it.next();
 				temp = rel.getEnd();
-				URI relType = rel.getURI();
-				if (relType.equals("http://data.semanticweb.org/ns/swc/ontology#isPartOf")
+				// HINT: Which URI is used for relating a paper with a conference?
+				// Check the publications.nt file to get the answer
+				if (rel.getURI().equals(/* INSERT String HERE */)
 					&& temp.isURI()
 					&& temp.getURI().equals("http://data.semanticweb.org/conference/eswc/2012"))
-					inESWC = true;
-				else if (relType.equals("http://swrc.ontoware.org/ontology#author"))
-					authors++;
+					inESWC++;
 			}
 			it.close();
-			// What is the condition that the paper in Vertex p must
-			// fulfill to be acounted as part of the final result set?
-			if (/* INSERT Condition HERE */)
-				inFinal++;
 		}
 
 		// Print the result
-		System.out.println(inFinal);
+		System.out.println(inESWC);
 		
 		g.close();
 	}

@@ -24,7 +24,7 @@ import java.io.*;
 
 import ve.usb.ldc.graphium.core.*;
 
-public class Q02 {
+public class B {
 
 	public static void main(String[] args) {
 

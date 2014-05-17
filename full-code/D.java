@@ -24,7 +24,7 @@ import java.io.*;
 
 import ve.usb.ldc.graphium.core.*;
 
-public class Q06 {
+public class D {
 
 	public static void main(String[] args) {
 
@@ -65,7 +65,7 @@ public class Q06 {
 			it.close();
 		}
 
-		// Get papers cited by -papers written by- Peter Smith in 'papers_cited_ps'
+		// Get papers cited by papers cited by Peter Smith
 		for (Vertex p : papers_cited_ps) {
 			it = p.getEdgesOut();
 			while (it.hasNext()) {
@@ -76,34 +76,7 @@ public class Q06 {
 			it.close();
 		}
 
-		// Now lets find out how many of the papers in
-		// the result set where published at ESWC and
-		// have more than 4 co-authors
-		int inFinal = 0;
-		for (Vertex p : result) {
-			it = p.getEdgesOut();
-			boolean inESWC = false;
-			int authors = 0;
-			while (it.hasNext()) {
-				rel = it.next();
-				temp = rel.getEnd();
-				URI relType = rel.getURI();
-				if (relType.equals("http://data.semanticweb.org/ns/swc/ontology#isPartOf")
-					&& temp.isURI()
-					&& temp.getURI().equals("http://data.semanticweb.org/conference/eswc/2012"))
-					inESWC = true;
-				else if (relType.equals("http://swrc.ontoware.org/ontology#author"))
-					authors++;
-			}
-			it.close();
-			// What is the condition that the paper in Vertex p must
-			// fulfill to be acounted as part of the final result set?
-			if (inESWC && authors<=4)
-				inFinal++;
-		}
-
-		// Print the result
-		System.out.println(inFinal);
+		System.out.println(result.size());
 		
 		g.close();
 	}

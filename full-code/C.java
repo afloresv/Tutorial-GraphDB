@@ -24,7 +24,7 @@ import java.io.*;
 
 import ve.usb.ldc.graphium.core.*;
 
-public class Q05 {
+public class C {
 
 	public static void main(String[] args) {
 
@@ -65,7 +65,7 @@ public class Q05 {
 			it.close();
 		}
 
-		// Get papers cited by -papers written by- Peter Smith in 'papers_cited_ps'
+		// Get papers cited by papers cited by Peter Smith
 		for (Vertex p : papers_cited_ps) {
 			it = p.getEdgesOut();
 			while (it.hasNext()) {
@@ -76,27 +76,10 @@ public class Q05 {
 			it.close();
 		}
 
-		// Now lets find out how many of the papers in
-		// the result set where published at ESWC
-		int inESWC = 0;
-		for (Vertex p : result) {
-			it = p.getEdgesOut();
-			while (it.hasNext()) {
-				rel = it.next();
-				temp = rel.getEnd();
-				// HINT: Which URI is used for relating a paper with a conference?
-				// Check the publications.nt file to get the answer
-				if (rel.getURI().equals(/* INSERT String HERE */)
-					&& temp.isURI()
-					&& temp.getURI().equals("http://data.semanticweb.org/conference/eswc/2012"))
-					inESWC++;
-			}
-			it.close();
-		}
+		// Lets print the results
+		for (Vertex r : result)
+			System.out.println(r.getAny());
 
-		// Print the result
-		System.out.println(inESWC);
-		
 		g.close();
 	}
 }
