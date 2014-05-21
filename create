@@ -5,7 +5,7 @@ echo " |          Graphium           |"
 echo " | © Universidad Simon Bolivar |"
 echo " +-----------------------------+"
 echo -n " Creating graph DB..."
-mkdir log
+mkdir -p log
 java $FLAGS -classpath $LIBS ve.usb.ldc.graphium.load.LoadGraph $@ 2>> log/Graphium.log
 if [ $? -ne 0 ]; then
 	echo ""

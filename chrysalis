@@ -5,7 +5,7 @@ echo " |      Graphium Chrysalis     |"
 echo " | © Universidad Simon Bolivar |"
 echo " +-----------------------------+"
 echo -n " Analizing..."
-mkdir log
+mkdir -p log
 java $FLAGS -classpath $LIBS ve.usb.ldc.graphium.chrysalis.run $@ > chrysalis.log 2>> log/Graphium.log
 if [ $? -ne 0 ]; then
 	echo ""
