@@ -116,4 +116,4 @@ Now, go to the [Graphium Chrysalis website](http://graphium.ldc.usb.ve/chrysalis
 
 ----
 
-After you finish every assignment, you can zip this folder and send it to the [judge](mailto:graphium@ldc.usb.ve). Good luck!
+After you finish every assignment, you can zip the `experiment` folder and send it to the [judge](mailto:graphium@ldc.usb.ve). Good luck!
