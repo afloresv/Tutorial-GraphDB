@@ -34,7 +34,7 @@ public class B {
 		Edge rel;
 		GraphIterator<Edge> it;
 
-		// Use any container class to contain a Vertex set
+		// You can use any container class to contain a Vertex set
 		HashSet<Vertex> papers_ps = new HashSet<Vertex>();
 		HashSet<Vertex> papers_cited_ps = new HashSet<Vertex>();
 

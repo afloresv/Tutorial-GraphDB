@@ -34,8 +34,8 @@ public class A {
 		Edge rel;
 		GraphIterator<Edge> it;
 
-		// Find the node for 'Peter Smith'
-		// This time, is represented as an URI
+		// Find the URI that represents 'Peter Smith'
+		// HINT: Check the publications.nt file
 		v = g.getVertexURI(/* INSERT String HERE */);
 		if (v == null) return;
 
