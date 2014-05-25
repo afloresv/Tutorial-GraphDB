@@ -28,7 +28,7 @@ public class Q04 {
 
 	public static void main(String[] args) {
 
-		GraphRDF g = GraphiumLoader.open(args[0]);
+		Graphium g = GraphiumLoader.open(args[0]);
 
 		Vertex v, temp;
 		Edge rel;

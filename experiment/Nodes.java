@@ -28,7 +28,7 @@ public class Nodes {
 
 	public static void main(String[] args) {
 
-		GraphRDF g = GraphiumLoader.open(args[0]);
+		Graphium g = GraphiumLoader.open(args[0]);
 
 		Vertex v;
 		GraphIterator<Vertex> it;
